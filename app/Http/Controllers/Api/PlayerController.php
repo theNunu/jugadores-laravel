@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlayerRequest;
+use App\Http\Requests\UpdatePlayerRequest;
 use App\Models\Player;
 use App\Services\PlayerService;
 use Illuminate\Http\Request;
@@ -41,10 +42,16 @@ class PlayerController extends Controller
     }
 
 
-    public function update(Request $request, Player $player)
+    // public function update(  UpdatePlayerRequest $request, $player_id)
+    // {
+    //     $data = $request->all();
+    //     return response()->json($this->servicePlayer->update($player, $data));
+    // }
+        public function update(UpdatePlayerRequest $request, string $player_id)
     {
-        $data = $request->all();
-        return response()->json($this->servicePlayer->update($player, $data));
+        return response()->json(
+            $this->servicePlayer->update( $request->validated(), $player_id)
+        );
     }
 
 

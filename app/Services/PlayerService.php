@@ -93,8 +93,14 @@ class PlayerService
     }
 
 
-    public function update(Player $player, array $data)
+    // public function update(Player $player, array $data)
+    // {
+    //     return $this->playerRepository->update($player, $data);
+    // }
+    public function update(array $data, string $playerId)
     {
+        $player = $this->playerRepository->find($playerId);
+
         return $this->playerRepository->update($player, $data);
     }
 

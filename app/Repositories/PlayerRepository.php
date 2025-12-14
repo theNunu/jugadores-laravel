@@ -26,13 +26,23 @@ class PlayerRepository
     }
 
 
+    // public function update(Player $player, array $data)
+    // {
+    //     $player->update($data);
+    //     $player->competitions()->sync($data['competition_ids'] ?? []);
+    //     return $player;
+    // }
+
     public function update(Player $player, array $data)
     {
         $player->update($data);
-        $player->competitions()->sync($data['competition_ids'] ?? []);
-        return $player;
-    }
 
+        if (array_key_exists('competition_ids', $data)) {
+            $player->competitions()->sync($data['competition_ids']);
+        }
+
+        return $player->load('competitions');
+    }
 
     public function delete(Player $player)
     {
