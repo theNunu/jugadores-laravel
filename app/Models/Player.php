@@ -25,6 +25,6 @@ class Player extends Model
             'competition_player',
             'player_id',
             'competition_id'
-        );
+        )->withPivot('id'); //->withPivot('id'); añdido para que aparezca el id de la tabla pivote en el get all
     }
 }

@@ -29,6 +29,7 @@ class PlayerService
 
                 'competitions' => $player->competitions->map(function ($comp) {
                     return [
+                         'player_competition_id' => $comp->pivot->id, //id de pivote
                         'competition_id' => $comp->competition_id,
                         'title'          => $comp->title,
                         'description'    => $comp->description,
@@ -52,6 +53,7 @@ class PlayerService
 
                 'competitions' => $p->competitions->map(function ($comp) {
                     return [
+                        'player_competition_id' => $comp->pivot->id, //id de pivote
                         'competition_id' => $comp->competition_id,
                         'title'          => $comp->title,
                         'description'    => $comp->description,
