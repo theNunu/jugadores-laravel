@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 // use App\Models\Player;
 
@@ -8,7 +9,8 @@ use App\Repositories\CompetitionRepository;
 class CompetitionService
 {
     protected $competitionRepository;
-    public function __construct(CompetitionRepository $competitionRepository) {
+    public function __construct(CompetitionRepository $competitionRepository)
+    {
         $this->competitionRepository = $competitionRepository;
     }
 
@@ -32,10 +34,17 @@ class CompetitionService
     }
 
 
-    public function update(Competition $competition, array $data)
+    // public function update(Competition $competition, array $data)
+    // {
+    //     return $this->competitionRepository->update($competition, $data);
+    // }
+    public function update(array $data, string $competitionId)
     {
+        $competition = $this->competitionRepository->find($competitionId);
+
         return $this->competitionRepository->update($competition, $data);
     }
+
 
 
     public function delete(Competition $competition)

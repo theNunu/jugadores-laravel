@@ -23,6 +23,7 @@ Route::prefix('competitions')->group(function () {
     Route::get('/', [App\Http\Controllers\Api\CompetitionController::class, 'index']);
     Route::post('/', [App\Http\Controllers\Api\CompetitionController::class, 'store']);
     Route::get('/{competition_id}', [App\Http\Controllers\Api\CompetitionController::class, 'show']);
+    Route::put('/{competition_id}', [App\Http\Controllers\Api\CompetitionController::class, 'update']);
     // Route::put('/{competition}', [App\Http\Controllers\Api\CompetitionController::class, 'update']);
     // Route::delete('/{competition}', [App\Http\Controllers\Api\CompetitionController::class, 'destroy']);
 });

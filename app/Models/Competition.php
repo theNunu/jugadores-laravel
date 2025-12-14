@@ -41,7 +41,7 @@ class Competition extends Model
         });
 
         static::updated(function ($competition) {
-            CompetitionPublic::where('competition_id', $competition->competition_id)
+            CompetitionPublic::where('_id', $competition->competition_id)
                 ->update([
                     'title'       => $competition->title,
                     'description' => $competition->description,

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Repositories;
+
 use App\Models\Competition;
 
 class CompetitionRepository
@@ -29,6 +31,7 @@ class CompetitionRepository
         // $player->competitions()->sync($data['competition_ids'] ?? []);
         return $competition;
     }
+
 
 
     public function delete(Competition $competition)
