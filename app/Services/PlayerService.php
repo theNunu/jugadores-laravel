@@ -66,6 +66,7 @@ class PlayerService
 
     public function showCom($competition_id) //obtener una competicion con sus jugadores 
     {
+        //jugadores que epertenecen a esa  competicion, junto con la tabla pivote
         $player = Competition::where('competition_id', $competition_id)->get();
         // return $this->playerRepository->all();
 
@@ -77,6 +78,7 @@ class PlayerService
 
                 'players' => $comp->players->map(function ($p) {
                     return [
+                        'player_competition_id' => $p->pivot->id, //id de pivote
                         'player_id'   => $p->player_id,
                         'name'        => $p->name,
                         'age'         => $p->age,

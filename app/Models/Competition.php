@@ -24,6 +24,6 @@ class Competition extends Model
             'competition_player',
             'competition_id',
             'player_id'
-        );
+        )->withPivot('id');
     }
 }
