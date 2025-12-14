@@ -109,8 +109,10 @@ class PlayerService
     }
 
 
-    public function delete(Player $player)
+    public function delete(string $playerId): void
     {
+        $player = $this->playerRepository->find($playerId);
+
         $this->playerRepository->delete($player);
     }
 }

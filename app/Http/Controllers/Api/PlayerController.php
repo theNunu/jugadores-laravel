@@ -14,7 +14,8 @@ class PlayerController extends Controller
 {
 
     protected $servicePlayer;
-    public function __construct(PlayerService $servicePlayer) {
+    public function __construct(PlayerService $servicePlayer)
+    {
         $this->servicePlayer = $servicePlayer;
     }
 
@@ -36,7 +37,7 @@ class PlayerController extends Controller
         return response()->json($this->servicePlayer->show($player_id));
     }
 
-        public function showCom($competition_id)
+    public function showCom($competition_id)
     {
         return response()->json($this->servicePlayer->showCom($competition_id));
     }
@@ -47,17 +48,18 @@ class PlayerController extends Controller
     //     $data = $request->all();
     //     return response()->json($this->servicePlayer->update($player, $data));
     // }
-        public function update(UpdatePlayerRequest $request, string $player_id)
+    public function update(UpdatePlayerRequest $request, string $player_id)
     {
         return response()->json(
-            $this->servicePlayer->update( $request->validated(), $player_id)
+            $this->servicePlayer->update($request->validated(), $player_id)
         );
     }
-
-
-    public function destroy(Player $player)
+    public function destroy(string $player_id)
     {
-        $this->servicePlayer->delete($player);
-        return response()->json(['message' => 'Deleted']);
+        $this->servicePlayer->delete($player_id);
+
+        return response()->json([
+            'message' => 'Player deleted successfully'
+        ], 200);
     }
 }

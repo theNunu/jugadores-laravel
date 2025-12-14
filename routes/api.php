@@ -15,7 +15,7 @@ Route::prefix('players')->group(function () {
     Route::get('/com/{competition_id}', [App\Http\Controllers\Api\PlayerController::class, 'showCom']); //competicion con sus jugadores
 
     Route::put('/{player_id}', [App\Http\Controllers\Api\PlayerController::class, 'update']);
-    // Route::delete('/{player}', [App\Http\Controllers\Api\PlayerController::class, 'destroy']);x
+    Route::delete('/{player_id}', [App\Http\Controllers\Api\PlayerController::class, 'destroy']);
 });
 
 
