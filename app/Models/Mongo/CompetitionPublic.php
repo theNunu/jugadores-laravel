@@ -9,12 +9,13 @@ class CompetitionPublic extends Model
     protected $connection = 'mongodb';
     protected $collection = 'competitions';
 
-    protected $primaryKey = 'competition_id';
+    protected $primaryKey = '_id';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'competition_id',
+        '_id',
+        // 'competition_id',
         'title',
         'description'
     ];

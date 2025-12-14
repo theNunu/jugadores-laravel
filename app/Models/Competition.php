@@ -33,7 +33,8 @@ class Competition extends Model
     {
         static::created(function ($competition) {
             CompetitionPublic::create([
-                'competition_id' => $competition->competition_id,
+                '_id'            => $competition->competition_id, // 👈 IMPORTANTE
+                // 'competition_id' => $competition->competition_id,
                 'title'          => $competition->title,
                 'description'    => $competition->description,
             ]);
