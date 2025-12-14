@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Player extends Model
 {
+    protected $hidden = ['pivot']; //tiene que colocarse en este modelo para que no aparezca en la relacion many to many y vicecversa segun el modelo que llames en el service
     use HasUuids;
 
     protected $primaryKey = 'player_id';

@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('players')->group(function () {
     Route::get('/', [PlayerController::class, 'index']);
     Route::post('/', [PlayerController::class, 'store']);
-    Route::get('/{player_id}', [App\Http\Controllers\Api\PlayerController::class, 'show']);
+    Route::get('/{player_id}', [App\Http\Controllers\Api\PlayerController::class, 'show']); //jugador con sus competiones
+    Route::get('/com/{competition_id}', [App\Http\Controllers\Api\PlayerController::class, 'showCom']); //xompwiticion con sus jugadores
 
     // Route::put('/{player}', [App\Http\Controllers\Api\PlayerController::class, 'update']);
     // Route::delete('/{player}', [App\Http\Controllers\Api\PlayerController::class, 'destroy']);x

@@ -6,7 +6,8 @@ class CompetitionRepository
 {
     public function all()
     {
-        return Competition::get();
+        // return Competition::get();
+        return Competition::with('players')->get();
     }
 
     public function find(string $id)

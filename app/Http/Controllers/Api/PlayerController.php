@@ -35,6 +35,11 @@ class PlayerController extends Controller
         return response()->json($this->servicePlayer->show($player_id));
     }
 
+        public function showCom($competition_id)
+    {
+        return response()->json($this->servicePlayer->showCom($competition_id));
+    }
+
 
     public function update(Request $request, Player $player)
     {
