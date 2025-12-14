@@ -49,7 +49,7 @@ class Competition extends Model
         });
 
         static::deleted(function ($competition) {
-            CompetitionPublic::where('competition_id', $competition->competition_id)
+            CompetitionPublic::where('_id', $competition->competition_id)
                 ->delete();
         });
     }
