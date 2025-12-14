@@ -1,6 +1,7 @@
 <?php
-
+namespace App\Services;
 use App\Models\Player;
+use App\Repositories\PlayerRepository;
 
 class PlayerService
 {
@@ -13,6 +14,13 @@ class PlayerService
     public function list()
     {
         return $this->playerRepository->all();
+    }
+
+      public function show($player_id)
+    {
+        $player = Player::find($player_id);
+        // return $this->playerRepository->all();
+        return $player->load('competitions');
     }
 
 

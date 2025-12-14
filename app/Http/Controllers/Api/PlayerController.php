@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlayerRequest;
 use App\Models\Player;
+use App\Services\PlayerService;
 use Illuminate\Http\Request;
-use PlayerService;
+
 
 class PlayerController extends Controller
 {
@@ -29,9 +30,9 @@ class PlayerController extends Controller
     }
 
 
-    public function show(Player $player)
+    public function show($player_id)
     {
-        return response()->json($player->load('competitions'));
+        return response()->json($this->servicePlayer->show($player_id));
     }
 
 
