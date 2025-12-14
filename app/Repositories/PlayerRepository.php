@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Repositories;
+
 use App\Models\Player;
 
 class PlayerRepository
@@ -18,7 +20,9 @@ class PlayerRepository
     {
         $player = Player::create($data);
         $player->competitions()->sync($data['competition_ids'] ?? []);
-        return $player;
+
+        // Recargar relaciones para devolver el jugador con sus competiciones
+        return $player->load('competitions');
     }
 
 

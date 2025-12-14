@@ -27,7 +27,7 @@ class PlayerRequest extends FormRequest
             'name' => 'required|string',
             'age' => 'required|integer',
             'description' => 'nullable|string',
-            'competition_ids' => 'array',
+            'competition_ids' => 'required|array',
             'competition_ids.*' => 'uuid|exists:competitions,competition_id'
 
         ];
