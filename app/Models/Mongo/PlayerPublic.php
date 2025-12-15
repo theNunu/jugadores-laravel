@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models\Mongo;
 
 use MongoDB\Laravel\Eloquent\Model;
@@ -19,4 +20,7 @@ class PlayerPublic extends Model
     ];
 
     // public $timestamps = false;
+    // protected $casts = [
+    //     'competitions' => 'array',
+    // ];
 }
